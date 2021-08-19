@@ -1,0 +1,7 @@
+<h1>Your Lists</h1>
+<h1> <%= link_to "Add New List", new_list_path %> </h1>
+<h2><ul>
+<% @lists.each do |list| %>
+  <li><%= link_to list.name, list_path(list) %> <%= link_to "Delete List", list_path(list), method: :delete %></li>
+  <% end %>
+</ul></h2>
