@@ -1,7 +1,18 @@
-<h1>Your Lists</h1>
-<h1> <%= link_to "Add New List", new_list_path %> </h1>
-<h2><ul>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.pinimg.com/736x/e5/9e/71/e59e718b16b29da280e65849a5d5ff57.jpg);">
+  <div class="container">
+    <h1>Your Lists</h1>
+    <p>Change your life and save your movies</p>
+    <a class="btn btn-light" href ="<%= new_list_path %>">Add new list</a>
+  </div>
+</div>
+
+
+<body>
 <% @lists.each do |list| %>
-  <li><%= link_to list.name, list_path(list) %> <%= link_to "Delete List", list_path(list), method: :delete %></li>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
+    <h3><%= link_to list.name, list_path(list) %></h3>
+    <br>
+    <p><%= link_to "Delete List", list_path(list), method: :delete %></p>
+  </div>
   <% end %>
-</ul></h2>
+</body>
